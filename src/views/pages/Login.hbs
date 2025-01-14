@@ -1,17 +1,17 @@
-{{!-- src/views/pages/Login.hbs --}}
-<did>
+<!-- src/views/pages/Login.hbs -->
+<div>
     <h1>Login</h1>
-    <form action="/login/login" method="post">
+    <form action="/login/loginToApp" method="post">
         <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" />
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required />
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <input type="password" name="password" id="password" required />
         </div>
         <div>
             <button type="submit">Login</button>
         </div>
     </form>
-</did>
+</div>

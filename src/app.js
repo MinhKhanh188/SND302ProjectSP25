@@ -9,9 +9,9 @@ require('dotenv').config();
 const http = require('http');
 const socketIo = require('socket.io');
 const bcrypt = require('bcryptjs');
+const cookieParser = require('cookie-parser');
 
 const port = process.env.PORT;
-
 const app = express();
 
 const databaseConnect = require('./config/db/databaseConnect');
@@ -30,6 +30,10 @@ app.use(methodOverride('_method'));
 app.engine('.hbs', engine({ extname: '.hbs' })); // Use 'engine' here
 app.set('view engine', '.hbs'); app.set('views', path.join(__dirname, './views')); // Set the views directory
 
+app.use(cookieParser());
+
+// Serve static files
+app.use('/styles', express.static(path.join(__dirname, 'src/styles')));
 
 // Routes init
 route(app);
